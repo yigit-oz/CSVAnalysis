@@ -8,11 +8,14 @@
  */
 import edu.duke.*;
 import org.apache.commons.csv.*;
+import java.util.Scanner;
 
 public class AnalyzeExports {
     // for testing methods
     public void tester() {
+        Scanner input = new Scanner(System.in);
         FileResource fr = new FileResource();
+        
         CSVParser cv = fr.getCSVParser();
         System.out.println(countryInfo(cv, "nauru"));
 
