@@ -1,2 +1,3 @@
-# CSVAnalysis
-Analysis of .csv files with java
+# CSVAnalysisExports
+
+Analysis of .csv files with the headings "Country", "Exports" and "Value (dollars)". 
