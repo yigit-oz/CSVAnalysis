@@ -1,5 +1,5 @@
 # CSVAnalysisExports
+Analysis of .csv files with the headings "Country", "Exports" and "Value (dollars)".
 
-Analysis of .csv files with the headings "Country", "Exports" and "Value (dollars)". 
 Libraries used for this project
 https://www.dukelearntoprogram.com/course2/doc/javadoc/index.html?course=2 
