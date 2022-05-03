@@ -1,5 +1,5 @@
 /**
- * a class for analyzing .csv files in the lib folder
+ * a class for analyzing .csv files with the headings "Country", "Exports" and "Value (dollars)".
  * 
  * apache commons and coursera libraries are used for this class  
  * https://www.dukelearntoprogram.com/course2/doc/javadoc/index.html?course=2 
