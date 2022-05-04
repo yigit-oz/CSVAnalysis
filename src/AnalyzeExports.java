@@ -17,7 +17,7 @@ public class AnalyzeExports {
         FileResource fr = new FileResource();
         
         CSVParser cv = fr.getCSVParser();
-        System.out.println(countryInfo(cv, "nauru"));
+        System.out.println(countryInfo(cv, "russia"));
 
         cv = fr.getCSVParser();
         listExportersTwoProducts(cv, "fish", "nuts");
