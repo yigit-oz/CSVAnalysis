@@ -17,20 +17,23 @@ public class AnalyzeExports {
         FileResource fr = new FileResource();
         
         CSVParser cv = fr.getCSVParser();
-        System.out.println(countryInfo(cv, "russia"));
+        System.out.println(countryInfo(cv));
 
         cv = fr.getCSVParser();
-        listExportersTwoProducts(cv, "fish", "nuts");
+        listExportersTwoProducts(cv);
 
         cv = fr.getCSVParser();
-        int nOfExporters = numberOfExporters(cv, "sugar");
+        int nOfExporters = numberOfExporters(cv);
         System.out.println(nOfExporters);
 
         cv = fr.getCSVParser();
         bigExporters(cv, "$999,999,999,999");
     }
-    // returns a string of information about the country or returns “NOT FOUND” if there is no information about the country.
-    public String countryInfo(CSVParser parser, String country) {
+    // returns a string of information about the country or returns “NOT FOUND” if there is no information.
+    public String countryInfo(CSVParser parser) {
+        Scanner input = new Scanner(System.in);
+        System.out.println("Enter a country for information: ");
+        String country = input.nextLine();
         for(CSVRecord record: parser) {
             String name = record.get("Country");
             if(name.equalsIgnoreCase(country)){
@@ -40,7 +43,14 @@ public class AnalyzeExports {
         return "NOT FOUND";
     }
     // prints the names of all the countries that have both exportItem1 and exportItem2 as export items.
-    public void listExportersTwoProducts(CSVParser parser, String exportItem1, String exportItem2) {
+    public void listExportersTwoProducts(CSVParser parser) {
+        Scanner input = new Scanner(System.in);
+        System.out.println("Find the countries which export both of the items");
+        System.out.println("Enter first export item: ");
+        String exportItem1 = input.nextLine();
+        System.out.println("Enter second export item: ");
+        String exportItem2 = input.nextLine();
+        System.out.println("Countries which export both:");
         for(CSVRecord record: parser) {
             String exports = record.get("Exports");
             if(exports.contains(exportItem1) && exports.contains(exportItem2)) {
@@ -49,8 +59,11 @@ public class AnalyzeExports {
         }
     }
     // returns the number of countries that export exportItem
-    public int numberOfExporters(CSVParser parser, String exportItem) {
+    public int numberOfExporters(CSVParser parser) {
         int count = 0;
+        Scanner input = new Scanner(System.in);
+        System.out.println("Enter an export item to find the total number of exporters:");
+        String exportItem = input.nextLine();
         for(CSVRecord record: parser) {
             String exports = record.get("Exports");
             if(exports.contains(exportItem)) {
@@ -62,6 +75,7 @@ public class AnalyzeExports {
     // prints the names of countries and their Value amount for all countries whose "Value (dollars)" string is longer than the amount string
     // amount is a String in the format of a dollar sign, followed by an integer number with a comma separator every three digits from the right 
     public void bigExporters(CSVParser parser, String amount) {
+        System.out.println("Countries which has more value than " + amount);
         for(CSVRecord record: parser) {
             String value = record.get("Value (dollars)");
             if(value.length() > amount.length()) {
